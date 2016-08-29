@@ -34,6 +34,14 @@ pipのインストール方法はOSによって異なります。
 :Ubuntu: get-pip.py
 :Windows/OSX: ensurepip
 
+.. note::
+
+  ``$`` の後にコマンドが続いている表記は、
+  ターミナル・コマンドプロンプトでコマンドを入力することを想定しています。
+
+  ``$ python my_script.py``
+
+
 Windows/OSX
 ~~~~~~~~~~~
 
@@ -44,7 +52,7 @@ Pythonをインストールした際にpipも一緒にインストールされ�
 
 ::
 
-  C:\Users\pyconjp> pip --version
+  $ pip --version
   pip 8.1.1 from c:\users\pyconjp\appdata\local\programs\python\python35-32\lib\site-packages (python 3.5)
 
 .. warning::
@@ -70,6 +78,11 @@ Ubuntuにpipをインストールするには、PyPIが配布している ``get-
 
   ``python`` コマンドではなく ``python3`` コマンドを使うことに注意してください。
   ``python`` コマンドを使うと、 Python 2 用に pip がインストールされてしまいます。
+
+.. note::
+
+  ``curl`` コマンドがインストールされていない場合は、
+  ``sudo apt-get install -y curl`` でインストールできます。
 
 
 このままだとpipでパッケージインストール時にsudoが必要となるので、
@@ -105,7 +118,7 @@ pipのバージョン確認
 - pip のバージョンが 8 以上 (``8.0.0``, ``8.1.2`` など)
 - Python のバージョンが 3.4 または 3.5
 
-.. todo:: え！？問題があった！？その時は呼んでください
+.. todo:: え！？問題があった！？その時は講師を呼んでください
 
 
 Pillowをインストールしよう
@@ -153,34 +166,109 @@ Pillow がインストールされていれば、上記のような表示が得�
 画像を読み込んでみよう
 ======================
 
-.. todo::
+Pillowで画像を読み込んで、画像のサイズを表示するスクリプトを書いてみましょう。
 
-  - バイナリモードでのファイルオープン
-  - Pillow の import
-  - 開いた画像ファイルを Pillow に読み込ませるには
+Pillowで画像を読み込むには、
+``PIL.Image`` モジュールの ``open()`` 関数を用います。
 
-    - Pillow に読み込ませたことを確認するため、
-      Pillow の API で画像のサイズとか出してみる
+また、 画像のサイズは、
+``open()`` 関数が返すImageオブジェクトの ``size`` 属性から、
+``(width, height)`` という int 型のタプル形式で取得できます。
+
+
+.. code-block:: python
+
+  # read_image.py
+
+  from PIL import Image
+
+
+  with Image.open('./2016.png', 'r') as im:
+      print('%dx%d' % im.size)
+
+配布した画像ファイル ``2016.png`` と同じディレクトリに、
+``read_image.py`` という名前で上記のファイルを作成してください。
 
 .. note::
-
-  この話 ``import PIL`` が出てきたとこに書いておこう
 
   PIL(Python Imaging Library)はPillowの分岐（フォーク）元のライブラリです。
   PILは長らく開発が停滞しており、PillowはPILをフォークし開発を後継しています。
 
+すると下記のようなディレクトリ構成になります。
 
+::
+
+  ./
+  +- 2016.png
+  +- read_image.py
+
+では、このスクリプトを実行してみましょう。
+
+::
+
+  $ python3 read_image.py
+  WIDTHxHEIGHT
+
+.. todo:: 実際の画像サイズを記載
+
+スクリプトを実行すると上記のように画像ファイルのサイズが出力されます。
 
 
 画像を保存してみよう
 =====================
 
-.. 書き出すだけだと、内容が薄すぎるかも
+では開いたファイルを保存してみましょう。
 
-.. todo::
+画像を保存するには、 Image オブジェクトの ``save()`` メソッドを使います。
 
-  - 開いた画像データをファイルに書き出す
+``save()`` メソッドの引数は次のようになっています。
 
+:第1引数:
+    パス
+:第2引数:
+    画像フォーマット
+    （省略すると第一引数の拡張子から推測したフォーマットが選ばれます）
+
+今回は開いた PNG ファイルを JPEG 形式で保存してみましょう。
+
+``write_image.py`` という名前で以下のファイルを作成します。
+
+
+.. code-block:: python
+
+  # write_image.py
+
+  from PIL import Image
+
+
+  with Image.open('./2016.png', 'r') as im:
+      im.save('./2016.jpg', 'JPEG')
+
+::
+
+  $ python3 write_image.py
+  $
+
+これで画像が書き出されているはずです
+
+Linux/OSXでは ``ls`` コマンドを、
+Windowsでは ``dir`` コマンドを使って確認してみましょう。
+
+Linux/OSX::
+
+  $ ls
+  read_image.py write_image.py  2016.jpg  2016.png
+
+Windows::
+
+  $ dir /B
+  read_image.py
+  write_image.py
+  2016.jpg
+  2016.png
+
+出力が確認できたらEye of GnomeやWindows フォトビューアを使って
+``2016.jpg`` を開いてみてください。
 
 画像を縮小してみよう
 ====================
