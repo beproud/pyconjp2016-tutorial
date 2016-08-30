@@ -79,6 +79,8 @@ Ubuntuにpipをインストールするには、PyPIが配布している ``get-
   ``python`` コマンドではなく ``python3`` コマンドを使うことに注意してください。
   ``python`` コマンドを使うと、 Python 2 用に pip がインストールされてしまいます。
 
+  今後も引き続き ``python3`` コマンドを用います
+
 .. note::
 
   ``curl`` コマンドがインストールされていない場合は、
@@ -273,12 +275,51 @@ Windows::
 画像を縮小してみよう
 ====================
 
-.. todo::
-
-  - 画像を縮小するには
-  - 画像を開いて縮小して保存するところまで通しで行う
+最後に画像を縮小してみましょう。
 
 
+.. code-block:: python
+
+  # resize_image.py
+  from PIL import Image
+
+
+  RATIO = 0.5
+  #: 縮小比率
+
+  with Image.open('./2016.png', 'r') as im:
+      # 画像サイズを取得
+      width, height = im.size
+
+      # ``RATIO`` で縮小する
+      resized = im.resize((
+          int(RATIO * width),
+          int(RATIO * height),
+      ))
+
+      # 縮小された画像 (``resized``) を保存する
+      resized.save('./resized-2016.png')
+
+画像を縮小するには、 Image オブジェクトの ``resize()`` メソッドを使います。
+
+``resize(size)`` メソッドは、
+縮小後のサイズを ``(width, height)`` という int のタプル形式で渡すと、
+画像が縮小された Image オブジェクト新しく作られて返されます。
+
+.. caution:: ``resize()`` メソッドを呼び出されたオブジェクトの画像サイズは変わりません
+
+最後に、縮小後の Image オブジェクトの ``save()`` メソッドを呼び出して保存します。
+
+コードが書けたらさっそく実行してみましょう。
+
+::
+
+  $ python3 resize_image.py
+  $
+
+
+縮小に成功していると、 ``resized-2016.png`` という名前で縮小された画像が出力されているので、
+無事縮小された画像が出力されていることを確認してみましょう。
 
 .. Handbook のリンクあるとあとで便利かな
 .. https://pillow.readthedocs.io/en/3.3.x/handbook/index.html
