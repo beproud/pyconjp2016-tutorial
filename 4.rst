@@ -42,12 +42,6 @@
     $ python resize_image.py ./images/2016.png
     ./images/2016_thumb.png
 
-ファイルは複数指定できます::
-
-    $ python resize_image.py ./images/2016.png ./images/2016_thumb.png
-    ./images/2016_thumb.png
-    ./images/2016_thumb_thumb.png
-
 解説
 ----
 
@@ -76,7 +70,7 @@ Pythonファイル内に直接処理を書くと、この ``resize_image`` を�
 ``sys.argv`` からスクリプト呼び出し時の引数が取り出せます。
 例えば ``python resize_image.py ./images/2016.png`` と指定した場合
 ``sys.argv`` は ``['resize_image.py', './images/2016.png']`` というリストになります。
-第1要素の ``'resize_image.py'`` は対象のファイル名なので不要です。2要素以降のリストを取るため ``sys.argv[1:]`` としています。
+第1要素の ``'resize_image.py'`` は対象のファイル名なので不要です。2要素を取るため ``sys.argv[1]`` としています。
 
 この ``sys.argv`` を使った引数の受け取り方法は一番愚直な方法です。
 ステップ3では標準ライブラリー ``argparse`` を使うとより高度な引数の指定が簡単に書けます。
@@ -97,11 +91,6 @@ Pythonファイル内に直接処理を書くと、この ``resize_image`` を�
     ./images/trip/sky_thumb.jpg
 
 階層化されたディレクトリーの下まで変換されています。
-
-.. note::
-
-    コマンドラインに詳しい人なら前ステップのスクリプトと find コマンドを組み合わせて似たことができると思います
-
 
 ステップ3: 1つのコマンドとして完成させる
 ========================================
