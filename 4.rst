@@ -206,15 +206,16 @@ argparseを使うときの流れとしては
 
 * ``.add_argument()`` で引数を追加しています
 * ``.add_argument('paths')`` で位置引数を追加しています
-    * ``$ thumbnailer foo.jp`` とコマンドで指定する場合の ``foo.jpg`` が位置引数です
+    * ``$ thumbnailer -s=0.5 foo.jpg`` とコマンドで指定する場合の ``foo.jpg`` が位置引数です
     * ``nargs='+'`` と書いて、1つ以上の値を受け取ると指定できます。 ``$ thumbnailer foo.jp bar.jp ...``
     * ``help="..."`` で引数の意味を指定。ヘルプ表示に使われます
 * ``.add_argument('-s', '--size')`` でキーワード引数を追加しています。
-    * ``thumbnailer -s=0.5`` や ``thumbnailer --size=0.5`` の ``-s`` がキーワード引数です
+    * ``$ thumbnailer -s=0.5`` や ``$ thumbnailer --size=0.5`` の ``-s`` がキーワード引数です
     * 便利なように ``-s`` と ``--size`` 両方で解釈できるようにしています
     * ``type=float`` と指定して、 float型として扱うことを指定しています
     * ``default=0.5`` と指定して、キーワード引数が場合に 0.5 にするよう指定しています
-* ``.add_argument(..., action='store_true')`` と指定して、このキーワード引数が指定された場合値がTrueになるように指定しています
+* ``.add_argument(..., action='store_true')`` と指定して、このキーワード引数が指定された場合値がTrueになるように指定しています。
+    * `$ thumbnailer -r` とした場合、 `args.recursive` は `True` になります
 
 ``argparse.ArgumentParser`` を使うと自動でヘルプ表示が作成されます。
 ``--help`` キーワード引数が指定された場合にヘルプを表示してくれます::
