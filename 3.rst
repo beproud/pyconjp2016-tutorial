@@ -14,7 +14,7 @@
 2部の画像の縮小、JPEG変換スクリプトではファイルは1つだけしか変換できませんでした。
 ディレクトリー(フォルダー)を指定して、その中の画像ファイルすべてを変換するスクリプトを作りましょう。
 
-``codes/3/resize_image.py`` を手元に写経して、 ``codes/3/resize`` ディレクトリーもコピーしてください。
+`codes/3/resize_image.py <codes/3/resize_image.py>`_ を手元に写経して、 ``codes/3/resize`` ディレクトリーもコピーしてください。
 写経できたら ``codes/3/`` ディレクトリーに移動して ``python resize_image.py`` と実行してください。
 ``resize/resized_alps.jpg``、 ``resize/resized_sky.jpg`` と2つの画像ができます。
 
@@ -35,10 +35,12 @@ LGTM画像ジェネレーター
 LGTMはLooks Good To Meの略で、コードレビューの際に「良いね！」「(リリースしても)大丈夫そう」という意味で使うスラングです。
 単に文字で「LGTM」とコメントするのは少しツマラナイので、それっぽい(例えばサムズアップしてる)画像に「LGTM」と文字を挿入して画像で返信しましょう。
 
-``codes/3/lgtm.py`` を手元に写経してください。
+`codes/3/lgtm.py <codes/3/lgtm.py>`_ を手元に写経してください。
 写経できたら ``codes/3`` ディレクトリーに移動して ``python lgtm.py`` と実行してください。
 
 WindowsやLinuxの方は ``ImageFont.truetype('Helvetica', ...`` のフォント指定を好きなフォントに変えてください。
+
+* Windows: `Arial`
 
 解説
 -----
@@ -56,7 +58,7 @@ WindowsやLinuxの方は ``ImageFont.truetype('Helvetica', ...`` のフォント
 画像をいくつか合成してコラージュ画像を作ってみましょう。
 例えばお気に入りの旅行の写真を4枚用意して、2 x 2 にマス目状に並べて壁紙にするようなスクリプトです。
 
-``codes/3/collage.py`` を手元に写経してください。
+`codes/3/collage.py <codes/3/collage.py>`_ を手元に写経してください。
 写経できたら ``codes/3`` ディレクトリーに移動して ``python collage.py`` と実行してください。
 
 .. note::
