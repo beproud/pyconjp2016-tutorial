@@ -45,5 +45,5 @@ PyCon JP 2016 チュートリアル
 
 * 当チュートリアルで使うファイルはGitHubで管理されているので手元に持ってきてください。テキストや課題は全て含まれています。
 
-  * Gitがインストールできている人は ``git@github.com:beproud/pyconjp2016-tutorial.git`` を使います。
+  * Gitがインストールできている人は ``git clone git@github.com:beproud/pyconjp2016-tutorial.git`` してください。
   * Gitがインストールできていない人は `ZIPファイル <https://github.com/beproud/pyconjp2016-tutorial/archive/master.zip>`_ をダウンロードしてください。
