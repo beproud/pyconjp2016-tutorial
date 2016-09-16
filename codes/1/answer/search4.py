@@ -22,4 +22,4 @@ def search(target_path, keyword):
 
 
 if __name__ == '__main__':
-    search('notes', '雪')
+    search('../notes', '雪')

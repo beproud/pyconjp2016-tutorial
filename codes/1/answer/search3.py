@@ -3,6 +3,10 @@ import os
 
 
 def search(target_path, keyword):
+    if not os.path.exists(target_path):
+        print('指定したパスが存在しません')
+        return
+
     if not os.path.isdir(target_path):
         print('パスにはディレクトリを指定してください')
         return
@@ -17,4 +21,4 @@ def search(target_path, keyword):
 
 
 if __name__ == '__main__':
-    search('notes', '雪')
+    search('../notes', '雪')
