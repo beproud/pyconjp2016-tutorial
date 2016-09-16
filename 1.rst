@@ -207,7 +207,7 @@ PyQでは以下の課題を用意しています。 `分岐と反復(ループ)`
 
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    TypeError: calc_wage() takes exactly 2 arguments (0 given)
+    TypeError: calc_wage() missing 2 required positional arguments: 'wage' and 'hours'
 
   * 上記は「引数を `2個` 受け取ることを期待しているが実際には `0個` だった」というエラーメッセージです。
 
@@ -215,7 +215,7 @@ PyQでは以下の課題を用意しています。 `分岐と反復(ループ)`
 
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    TypeError: calc_wage() takes exactly 2 arguments (3 given)
+    TypeError: calc_wage() takes 2 positional arguments but 3 were given
 
   * 上記は「引数を `2個` 受け取ることを期待しているが実際には `3個` だった」というエラーメッセージです。
 
@@ -256,7 +256,7 @@ PyQでは以下の課題を用意しています。 `関数の定義と実行` �
 
 コラム
 ------------------
-* 先ほどの記述方法では `datetime` ライブラリの `datetime` ということで ``datetime.datetime(2016, 1, 31)`` のように書く必要がありました。
+* 先ほどの記述方法では `datetime` モジュールの `datetime` ということで ``datetime.datetime(2016, 1, 31)`` のように書く必要がありました。
 * `import` 文の前に `from` をつけて以下のように記述することができます。
 
 .. code-block:: python
@@ -272,6 +272,12 @@ PyQでは以下の課題を用意しています。 `関数の定義と実行` �
 * モジュールをディレクトリでまとめたものを `パッケージ` といいます。モジュールと同じように `import` できます。
 * これらを公開し、インストールすることで利用できる形式にしたものをライブラリといい、 `PyPI <https://pypi.python.org/pypi>`_ にアップロードされています。
 
+PyQ
+-----------------------------
+PyQでは以下の課題を用意しています。 `モジュール` についてもっと詳しく理解したい方は以下の課題に挑戦してみましょう。
+
+* `別のファイルの関数を利用しよう <https://app1.pyq.jp/function_import>`_
+
 6. 課題
 =============================
 第1部の知識を応用して以下の課題を解いてみましょう。
@@ -282,6 +288,12 @@ PyQでは以下の課題を用意しています。 `関数の定義と実行` �
 * `Q3.指定したpathが存在しない場合にエラーメッセージを表示しましょう <codes/1/q3.md>`_
 * `Q4.ディレクトリの中身を再帰的に検索しましょう <codes/1/q4.md>`_
 * `Q5.該当文字列が分かるようにしましょう <codes/1/q5.md>`_
+
+PyQではなく手元のPCで課題を解く場合、ダウンロードした `pyconjp2016-tutorial` ディレクトリから `codes/1` に `search.py` というファイルにあなたのコードを書いて実行しましょう。
+
+作ったPythonファイルは以下のように実行できます::
+
+  python search.py
 
 PyQ
 -----------------------------
