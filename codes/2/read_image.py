@@ -1,5 +1,3 @@
-# read_image.py
-
 from PIL import Image
 
 

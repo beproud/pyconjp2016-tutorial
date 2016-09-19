@@ -62,6 +62,9 @@ Pythonをインストールした際にpipも一緒にインストールされ�
 
   ただし、Pythonの公式 (python.org) のインストーラ以外でインストールした場合はこの限りではありません。
 
+  Python公式のバイナリを使うことをオススメします。
+
+
 Ubuntu
 ~~~~~~
 
@@ -85,7 +88,6 @@ Ubuntuにpipをインストールするには、PyPIが配布している ``get-
   ``curl`` コマンドがインストールされていない場合は、
   ``sudo apt-get install -y curl`` でインストールできます。
 
-
 このままだとpipでパッケージインストール時にroot権限が必要となるので、
 ホームディレクトリ下のパッケージインストール用ディレクトリにインストールされるように設定します。
 
@@ -103,10 +105,20 @@ pipのバージョン確認
 
 以下のコマンドを実行してください。
 
-::
+Ubuntu/Windows::
 
   $ pip --version
   pip 8.1.2 from /usr/local/lib/python3.4/dist-packages (python 3.4)
+
+OS X(3.4)::
+
+  $ pip3.4 --version
+  pip 8.1.2 from /path/to/dist-packages (python 3.4)
+
+OS X(3.5)::
+
+  $ pip3.5 --version
+  pip 8.1.2 from /path/to/dist-packages (python 3.5)
 
 この出力はそれぞれ次のような意味です。
 
@@ -123,8 +135,6 @@ pipのバージョン確認
 
   Windows の方へ: ディレクトリとはWindowsでいうフォルダーに相当するものです。
 
-.. todo:: え！？問題があった！？その時は講師を呼んでください
-
 
 Pillowをインストールしよう
 ==========================
@@ -138,11 +148,11 @@ Pillowは画像処理を行うライブラリで、画像の縮小や切り取�
 
 .. figure:: recursive.png
 
-  作例 1
+  作例 1: PyCon JP 2016 のロゴを繰り返し配置する
 
 .. figure:: rotate.png
 
-  作例 2
+  作例 2: PyCon JP 2016 のロゴを回転させる
 
 pipでパッケージをインストールするには ``pip install`` コマンドを使います。
 
@@ -152,7 +162,6 @@ pipでパッケージをインストールするには ``pip install`` コマン
 
   $ pip install Pillow
 
-では、インストールができたことを確認してみましょう。
 インストールされているパッケージを確認するには、 ``pip freeze`` コマンドを実行します
 
 ::
@@ -196,6 +205,16 @@ Pillowで画像を読み込むには、
 ``open()`` 関数が返すImageオブジェクトの ``size`` 属性から、
 ``(width, height)`` というint型のタプル形式で取得できます。
 
+.. code-block:: python
+
+  # read_image.py
+
+  from PIL import Image
+
+
+  with Image.open('./2016.png', 'r') as im:
+      print('%dx%d' % im.size)
+
 .. note::
 
   ここでの「オブジェクト」は、
@@ -207,7 +226,6 @@ Pillowで画像を読み込むには、
 
   「オブジェクト」についてより詳しく知りたい方は、
   ジェラルド・ジェイ・サスマンほか(2014)『計算機プログラムの構造と解釈 第2版』翔泳社の2章を参照してください。
-
 
 .. note::
 
@@ -233,16 +251,6 @@ Pillowで画像を読み込むには、
   「タプル」についてより詳しく知りたい方は、
   Pythonの公式ドキュメント http://docs.python.jp/3.5/tutorial/datastructures.html#tuples-and-sequences や
   Miran Lipovaca (2012) 『すごいHaskellたのしく学ぼう！』オーム社を参照してください。
-
-.. code-block:: python
-
-  # read_image.py
-
-  from PIL import Image
-
-
-  with Image.open('./2016.png', 'r') as im:
-      print('%dx%d' % im.size)
 
 配布した画像ファイル ``2016.png`` と同じディレクトリに、
 ``read_image.py`` という名前で上記のファイルを作成してください。

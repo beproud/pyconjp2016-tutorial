@@ -1,4 +1,3 @@
-# resize_image.py
 from PIL import Image
 
 
