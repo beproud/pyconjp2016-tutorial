@@ -28,9 +28,15 @@ PyCon JP 2016 チュートリアル
   * `第2部 <2.rst>`_: 画像処理ライブラリ「Pillow」の使い方
   * `第3部 <3.rst>`_: 1部,2部の知識を組み合わせ役立つスクリプトを作る方法
 
-* それぞれの部に設けられた課題をハンズオン形式で解きながらレベルアップしていただきます。
+* 講義形式でテキストを読み進めた後、用意した課題をハンズオン形式で解いていただきます。
 
   * 不明点はお近くの講師に気兼ねなくお尋ねください。
+  * 質疑応答の時間も設けます。
+
+* 当チュートリアルで使うファイルはGitHubで管理されているので手元に持ってきてください。テキストや課題は全て含まれています。
+
+  * Gitがインストールできている人は ``git clone https://github.com/beproud/pyconjp2016-tutorial.git`` してください。
+  * Gitがインストールできていない人は `ZIPファイル <https://github.com/beproud/pyconjp2016-tutorial/archive/master.zip>`_ をダウンロードしてください。
 
 * 第1部では不明点を `PyQ <https://pyq.jp>`_ というアプリケーションで復習することができます。
 
@@ -43,7 +49,3 @@ PyCon JP 2016 チュートリアル
 
     * `PyQ <https://pyq.jp>`_ について紹介させてください。リンクにアクセスしてください。
 
-* 当チュートリアルで使うファイルはGitHubで管理されているので手元に持ってきてください。テキストや課題は全て含まれています。
-
-  * Gitがインストールできている人は ``git clone git@github.com:beproud/pyconjp2016-tutorial.git`` してください。
-  * Gitがインストールできていない人は `ZIPファイル <https://github.com/beproud/pyconjp2016-tutorial/archive/master.zip>`_ をダウンロードしてください。
