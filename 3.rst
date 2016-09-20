@@ -40,7 +40,7 @@ LGTMはLooks Good To Meの略で、コードレビューの際に「良いね！
 
 WindowsやLinuxの方は ``ImageFont.truetype('Helvetica', ...`` のフォント指定を好きなフォントに変えてください。
 
-* Windows: `Arial`
+* Windows: `arial`
 
 解説
 -----
